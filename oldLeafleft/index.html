@@ -1,0 +1,82 @@
+<html>
+
+<head>
+	<title>Welcome!</title>
+
+
+    <script type="text/javascript">
+      function writeAbby() {
+      var elem = document.getElementById("Abby");
+      elem.innerHTML= "<p>Turn in your first card image. You may use past work if you like. Choose your image based on what you find on the card list page.Email your completed cards to me at thesnowmancometh@gmail.com. Complete one card by December 12th.</p>";
+      } // end function
+
+     </script>
+
+<script type="text/javascript">
+
+function writeKathryn() {
+	var elem = document.getElementById("Kathryns");
+		elem.innerHTML= "<p>Finish the Set applet, so that you can run it locally on your browser on your computer.</p><p>Send that to me and give me instructions on how to set it up on my computer so I can do the same.</p><p>Next, complete the Set app so that Brian can play it.</p><p>Build a gui for the Project Rosemary applet that has the following specs:<p>The game board will consist of two rows per player. The first row will have the Thugs (monster cards). It will be represented by <Strong>new Thug[5]</Strong>.<p>We need a Hire method. Robbie will handle the game mechanics of the  Hire method. His Hire method will pass an integer position to you for you to display a gui in that spot. When hire is called, it will call your method, <strong>draw(int index, Thug th)</strong>.<p>	The index will be the position in the array (0-4) in which the new card will be drawn. Your job is to draw the card to the screen.<p>Next, handle the second row:<p>The second row (one on each side of the battle field - one for each player), is for enhancement cards. The enhancement row is going to be represented by <strong>new ArrayList-Generic type Enhancement-[5]</strong>. That is, an array of arraylists, where the array of size five is of type ArrayList, and the arraylist is of type Enhancement.<p>Completion date to be determined.";
+}  // end function
+</script>
+
+<script type="text/javascript">
+function writeGabe() {
+	var elem=document.getElementById("Gabe's ID");
+	elem.innerHTML="<p>Design a card frame for Thug cards (monster cards). Send to me the completed frame. <p>Design a card frame for the Enhancement cards. Send to me the completed frame.";
+} // end function
+</script>
+
+<script type="text/javascript">
+
+function writeLuke() {
+	var elem = document.getElementById("Luke's ID");
+	elem.innerHTML = "<p>Develop the mechanics for infrustructure cards. <p>Develop the mechanics for quick-action (event) cards.<p>Complete your notes to the artist.<p>Develop enhancement cards which permit special abilities.<p>Complete the above by December 9th."
+} // end method
+
+</script>
+
+<script type="text/javascript">
+
+function writeRobbie() {
+	document.getElementById("Robbie's ID">).innerHTML=robbie;
+} // end method
+
+
+</script>
+
+</head>
+
+
+<body>
+
+<p><h1>Below you can find your current assignments;</h1><h3>click on the button with your name on it to see what you have to do.</h3></p>
+
+<button type="button" onclick="writeKathryn()">Kathryn</button>
+
+<p id="Kathryns"></p>
+
+<button type="button" onclick="writeLuke()">Luke</button>
+
+<p id="Luke's ID"></p>
+
+<button type="button" onclick="writeGabe()">Gabe</button>
+
+<p id="Gabe's ID"></p>
+
+<button type="button" onclick="writeAbby()">Abby</button>
+
+<p id="Abby"></p>
+
+	<script type="text/javascript">
+		var txt = "Click here for the card list";
+		var secondLink = "Click here to play Set";
+		document.write(txt.link("http://www.pitt.edu/~rem89/cardlist.html"));
+		document.write("<p>" + secondLink.link("http://www.pitt.edu/~rem89/set/set.html"));
+	</script>
+
+
+
+</body>
+
+</html>

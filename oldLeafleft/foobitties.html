@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+
+
+  <title>Foobitties: A Mapping Test in JavaScript</title>
+
+  <script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"> 
+  // this is effectively an import statement
+  </script> 
+
+</head>
+	
+	<body>
+
+		<div id="cm-example" style="width: 500px; height: 500px"></div> <!-- This creates a div element, calls it cm-example, and sets its height and width -->
+	
+		<script>
+
+			// this makes a new CloudMade tile object, using a specific app key. I don't fully know what this does.
+			var cloudmade = new CM.Tiles.CloudMade.Web({key: '8ee2a50541944fb9bcedded5165f09d9'});
+
+
+			//  creates a new CloudMade Map object with the CM.Map class and pass it the name of the HTML div to which our map will be attached and our tile layer.
+			var map = new CM.Map('cm-example', cloudmade);
+
+			var tits = new CM.LatLng(40.4426, -79.9566);
+
+			// Now we use the setCenter function to tell the map where to centre itself and at what zoom level
+			map.setCenter(tits, 15);
+
+
+			// Next we create a new control position object and pass it an anchor position object and a Size object. The "Anchor" tells the ControlPosition which corner of the map the controls should be offset from. The "Size" object tells the control how far it should be offset from the corner of the map. All of this information is held in a variable called "topRight".
+			var topRight = new CM.ControlPosition(CM.TOP_RIGHT, new CM.Size(50, 20));
+
+
+			// The next step is to add a control to the map. We add a small map control and pass it the information about its position that is held in topRight. Also some other controls are added:
+			map.addControl(new CM.SmallMapControl(), topRight);
+			//map.addControl(new CM.LargeMapControl());
+			//map.addControl(new CM.ScaleControl());
+			map.addControl(new CM.OverviewMapControl());
+
+		</script>
+
+	</body>
+
+</html>	

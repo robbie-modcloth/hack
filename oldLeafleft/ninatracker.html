@@ -1,0 +1,115 @@
+<html>
+	<head>
+	
+		<title>Tracking Nina</title>
+
+		<script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script>
+		
+
+		<!-- import leaflet api -->
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+		<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+
+
+		<!-- This here is used for mobile apps to disable unwanted scaling -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+	</head>
+
+	<body>
+
+		<div id="map"></div>
+
+		<!-- 							Begin attempt at a mobile application					-->
+
+		<style>
+
+			body {
+    			padding: 0;
+    			margin: 0;
+			}
+			html, body, #map {
+    			height: 100%;
+			}
+
+		</style>
+
+
+
+		<script>
+
+			var map = L.map('map');
+
+			L.tileLayer('http://b.tile.cloudmade.com/703c8e3d2d5f4b65a9ff70b0aefc3d40/997/256/{z}/{x}/{y}.png', {
+    			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    			maxZoom: 18
+			}).addTo(map);
+
+
+			map.locate({setView: true, maxZoom: 16});
+
+
+			function onLocationFound(e) {
+    			var radius = e.accuracy / 2;
+
+			    L.marker(e.latlng).addTo(map)
+        		.bindPopup("Nina is within " + radius + " meters from this point").openPopup();
+
+    			L.circle(e.latlng, radius).addTo(map);
+				}
+
+			map.on('locationfound', onLocationFound);
+
+
+			function onLocationError(e) {
+    			alert(e.message);	
+			}
+
+			map.on('locationerror', onLocationError);
+
+			
+			
+			
+		</script>
+<!--
+		<script>
+
+			var map = L.map('map');
+
+			try{
+
+			var center = map.getCenter();
+
+			
+			var marker = L.marker(center).
+			marker.addTo(map);
+
+			marker.bindPopup("<b>Joe Wateska</b><br>is here.").openPopup();
+
+			//map.setView(center, 15, false);
+
+//			map.zoomIn();
+//			map.zoomIn();
+
+			}
+
+			catch(err) {
+				txt="There was an error on this page.\n\n";
+  				txt+="Error description: " + err.message + "\n\n";
+  				txt+="Click OK to continue.\n\n";
+  				alert(txt);
+			}  // end catch
+
+
+		</script>	
+-->
+
+		   <p id="map"> 
+		   </p>
+
+
+
+	</body>
+
+</html>		

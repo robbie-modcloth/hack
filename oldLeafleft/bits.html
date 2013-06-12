@@ -1,0 +1,124 @@
+<html>
+
+	<head>
+
+		<title>Tracking my Roommate</title>
+
+		<script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script>
+		
+
+		<!-- import leaflet api -->
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+		<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+
+
+		<!-- This here is used for mobile apps to disable unwanted scaling -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+
+	</head>
+
+	<body>
+
+		<div id="cm-example" style="width: 500px; height: 500px"></div>
+
+		 <div id="map"></div>
+
+		<script type="text/javascript">
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////																								///////////
+///////////								This script makes a Cloudmade map     							///////////
+///////////																								///////////	
+			// THIS makes the tiles object
+			var cloudmade = new CM.Tiles.CloudMade.Web({key: '703c8e3d2d5f4b65a9ff70b0aefc3d40'});
+
+			// this makes the map, passing it the div element and the tile object
+			var map = new CM.Map('cm-example', cloudmade);
+
+
+			// set the center of the map
+			map.setCenter(new CM.LatLng(51.514, -0.137), 15);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		</script>
+		
+
+<!-- 							Begin attempt at a mobile application					-->
+
+	<style>
+
+		body {
+    		padding: 0;
+    		margin: 0;
+		}
+		html, body, #map {
+    		height: 100%;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+
+		var map = L.map('map');
+
+		L.tileLayer('http://b.tile.cloudmade.com/703c8e3d2d5f4b65a9ff70b0aefc3d40/997/256/{z}/{x}/{y}.png', {
+    		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    		maxZoom: 18
+		}).addTo(map);
+
+
+		map.locate({setView: true, maxZoom: 16});
+
+		var center = map.getCenter();
+
+		map.setView(center, 1, false);
+
+	</script>
+
+
+
+<!-- 		We're scrapping this biz for now so we can focus on the mobile biz
+
+<!-- This line takes the map elements and assigns it a specific heigt -
+	<style>
+		#map { height: 180px; }
+	</style>
+
+		<script>
+
+			//this makes a map object
+			var map = L.map('map')
+
+			// this sets the map's initial location
+			map.setView([51.505, -0.09], 13);
+
+
+			// includes my berlin url
+			// nobody has any ideas what this does. Not even the Google Sages.
+			L.tileLayer('http://b.tile.cloudmade.com/703c8e3d2d5f4b65a9ff70b0aefc3d40/1/256/15/17599/10746.png', { // the string is the image layer template 
+				// now we're establishing options. this is weird. Let's not do that.
+    			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    			maxZoom: 18
+    			//continuousWorld: true
+			}).addTo(map);
+
+
+		</script>
+
+
+<!---------------------------------------------------------------------------------------------------------->
+
+
+
+<!------ NOTE: This is not the same things as a leaflet map! -->
+		<p id="cm-example"> 
+		</p>
+
+
+<!-- This is a leaflet map -->
+		<p id="map"> 
+		</p>	
+
+	</body>
+	
+</html>
